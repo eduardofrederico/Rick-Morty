@@ -2,13 +2,15 @@
 //  SplashView.swift
 //  Rick&Morty
 //
-//  Created by Maria Eliza on 04/03/26.
+//  Created by Eduardo Frederico on 04/03/26.
 //
 
 import Foundation
 import UIKit
 
 class SplashView: UIView {
+    
+    public weak var delegate: SplashFlowDelegate?
     
     //Posso remover pois não vou usar imagem como logo, apenas texto
     private let logoImageView: UIImageView = {
@@ -50,4 +52,8 @@ class SplashView: UIView {
         ])
     
     }
+    
+    //criar função que capture
+    //o clique na splash após carregamento
+    //para direcionar para a Home
 }

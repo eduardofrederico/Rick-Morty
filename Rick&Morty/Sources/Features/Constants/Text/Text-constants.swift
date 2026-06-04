@@ -2,7 +2,7 @@
 //  Text-constants.swift
 //  Rick&Morty
 //
-//  Created by Maria Eliza on 30/03/26.
+//  Created by Eduardo Frederico on 30/03/26.
 //
 
 import Foundation

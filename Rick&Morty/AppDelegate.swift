@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Rick&Morty
 //
-//  Created by Maria Eliza on 01/03/26.
+//  Created by Eduardo Frederico on 01/03/26.
 //
 
 import UIKit

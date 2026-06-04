@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Rick&Morty
 //
-//  Created by Maria Eliza on 01/03/26.
+//  Created by Eduardo Frederico on 01/03/26.
 //
 
 import UIKit
@@ -10,17 +10,17 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var flowController: RMFlowController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
             
         let window = UIWindow(windowScene: windowScene)
+        flowController = RMFlowController()
+        let rootViewController = flowController?.start()
         
-        let navigation = UINavigationController(rootViewController: SplashViewController())
-        
-        window.rootViewController = navigation
+        window.rootViewController = rootViewController
         self.window = window
         window.makeKeyAndVisible()
         
