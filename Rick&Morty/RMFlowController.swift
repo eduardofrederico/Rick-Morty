@@ -12,7 +12,7 @@ class RMFlowController {
     //MARK: Properties
     private var navigationController: UINavigationController?
  
-    //MARK: Splash
+    
     //MARK: Init
     public init() {
         
@@ -23,5 +23,16 @@ class RMFlowController {
         self.navigationController = UINavigationController(rootViewController: startViewController)
         return navigationController
     }
+    
+}
+//MARK: Splash
+extension RMFlowController: SplashFlowDelegate {
+    func navigateToHome() {
+        self.navigationController?.dismiss(animated: true)
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = Colors.glowGreen
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     
 }

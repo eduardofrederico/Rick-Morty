@@ -13,8 +13,10 @@ class SplashViewController: UIViewController {
     var mainNavigation: UINavigationController?
     let contentView = SplashView()
     let viewModel = SplashViewModel()
+    public weak var flowDelegate: SplashFlowDelegate?
     
-    init() {
+    init(flowDelegate: SplashFlowDelegate) {
+        self.flowDelegate = flowDelegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -64,7 +66,6 @@ class SplashViewController: UIViewController {
     @objc
     private func goToHome() {
        /* let home = Home()
-        home.mainNavigation = self.navigationController
         home.modalPresentationStyle = .overCurrentContext
         home.modalTransitionStyle = .crossDissolve
         self.present(home, animated: false) {
@@ -74,10 +75,7 @@ class SplashViewController: UIViewController {
     
     private func bindViewModel () {
         viewModel.successLoading = { [weak self] in
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = Colors.glowGreen
-            self?.dismiss(animated: false)
-            self?.mainNavigation?.pushViewController(viewController, animated: true)
+            self?.flowDelegate?.navigateToHome()
         }
     }
     
