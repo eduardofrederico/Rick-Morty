@@ -25,26 +25,13 @@ class SplashViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        contentView.delegate = self
         
         super.viewDidLoad()
         
-        //Aqui devo criar o fluxo para ir para a home
-        //após efeito da Splash
-        //em caso de dúvida, voltar a partir da aula
-        //criando login, e seguir a criação de
-        //LoginBottomSheetViewController
-        //LoginbottomSheetView
-        
         startBreathingAnimation()
         setup()
-        setupGesture()
         bindViewModel()
     }
-    
-    /*private func decideNavigationFlow() {
-        if let user = UserDefaultsManager
-    }*/
     
     private func setup() {
         self.view.addSubview(contentView)
@@ -65,20 +52,9 @@ class SplashViewController: UIViewController {
         ])
     }
     
-    private func setupGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToHome))
-        self.view.addGestureRecognizer(tapGesture)
-    }
-    
     @objc
     private func goToHome() {
         self.flowDelegate?.navigateToHome()
-       /* let home = Home() excluir
-        home.modalPresentationStyle = .overCurrentContext
-        home.modalTransitionStyle = .crossDissolve
-        self.present(home, animated: false) {
-            home.animateShow()
-        }*/
     }
     
     private func bindViewModel () {
@@ -86,19 +62,6 @@ class SplashViewController: UIViewController {
             self?.flowDelegate?.navigateToHome()
         }
     }
-    
-    /*func animateShow(completion: (() -> Void)? = nil) {
-        self.view.layoutIfNeeded()
-        homeView.transform = CGAffineTransform(translationX: 0, y: homeView.frame.height)
-        UIView.animate(withDuration: 0.3, animations: {
-            self.homeView.transform = .identity
-            self.view.layoutIfNeeded()
-        }) { _ in
-            completion?()
-        }
-    }*/
-    //excluir se não for necessário para ir para Home
-    
 }
 
 extension SplashViewController {
@@ -106,11 +69,5 @@ extension SplashViewController {
         UIView.animate(withDuration: 1.6, delay: 0.4, animations: {
             //self.contentView.logoImageView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         })
-    }
-}
-
-extension SplashViewController: SplashFlowDelegate {
-    func navigateToHome() {
-        print("Go to Home!")
     }
 }

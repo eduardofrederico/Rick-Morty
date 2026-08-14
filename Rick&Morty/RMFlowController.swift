@@ -30,19 +30,13 @@ extension RMFlowController: SplashFlowDelegate {
     func navigateToHome() {
         self.navigationController?.dismiss(animated: true)
         let splashViewController = SplashViewController(flowDelegate: self)
-        splashViewController.modalPresentationStyle = .overCurrentContext
+        //carregar a home aqui
+        /*
+         splashViewController.modalPresentationStyle = .overCurrentContext
         splashViewController.modalTransitionStyle = .crossDissolve
         navigationController?.present(splashViewController, animated: false)
-        // conferir animateShow da Login bottom Sheet
-        //splashViewController.animateShow()
-        //excluir se não for necessário para ir para a Home
-        
-        /* excluir se não for necessário para ir para a Home
-        self.navigationController?.dismiss(animated: true)
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = Colors.glowGreen
-        self.navigationController?.pushViewController(viewController, animated: true)
          */
+        
     }
     
     
