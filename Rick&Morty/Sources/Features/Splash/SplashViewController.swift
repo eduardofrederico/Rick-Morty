@@ -29,6 +29,13 @@ class SplashViewController: UIViewController {
         
         super.viewDidLoad()
         
+        //Aqui devo criar o fluxo para ir para a home
+        //após efeito da Splash
+        //em caso de dúvida, voltar a partir da aula
+        //criando login, e seguir a criação de
+        //LoginBottomSheetViewController
+        //LoginbottomSheetView
+        
         startBreathingAnimation()
         setup()
         setupGesture()
@@ -65,7 +72,8 @@ class SplashViewController: UIViewController {
     
     @objc
     private func goToHome() {
-       /* let home = Home()
+        self.flowDelegate?.navigateToHome()
+       /* let home = Home() excluir
         home.modalPresentationStyle = .overCurrentContext
         home.modalTransitionStyle = .crossDissolve
         self.present(home, animated: false) {
@@ -78,6 +86,18 @@ class SplashViewController: UIViewController {
             self?.flowDelegate?.navigateToHome()
         }
     }
+    
+    /*func animateShow(completion: (() -> Void)? = nil) {
+        self.view.layoutIfNeeded()
+        homeView.transform = CGAffineTransform(translationX: 0, y: homeView.frame.height)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.homeView.transform = .identity
+            self.view.layoutIfNeeded()
+        }) { _ in
+            completion?()
+        }
+    }*/
+    //excluir se não for necessário para ir para Home
     
 }
 
