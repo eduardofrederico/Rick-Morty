@@ -29,7 +29,6 @@ class RMFlowController {
 //MARK: Splash
 extension RMFlowController: SplashFlowDelegate {
     func navigateToHome() {
-        self.navigationController?.dismiss(animated: false)
         let viewController = UIViewController()
         viewController.view.backgroundColor = Colors.lightGreen
         self.navigationController?.pushViewController(viewController, animated: true)

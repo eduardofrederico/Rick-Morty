@@ -8,12 +8,9 @@
 import Foundation
 
 class SplashViewModel {
-    var successLoading: (() -> Void)?
     
     func doLoad() {
-        if let successLoading {
-            self.successLoading?()
-        }
+        
     }
     
 }

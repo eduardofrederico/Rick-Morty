@@ -32,7 +32,6 @@ class SplashViewController: UIViewController {
         
         startBreathingAnimation()
         setup()
-        bindViewModel()
     }
     
     private func setup() {
@@ -54,22 +53,20 @@ class SplashViewController: UIViewController {
         ])
     }
     
-    @objc
-    private func goToHome() {
-        self.flowDelegate?.navigateToHome()
-    }
-    
     private func bindViewModel () {
-        viewModel.successLoading = { [weak self] in
-            self?.flowDelegate?.navigateToHome()
-        }
+        viewModel.doLoad()
+        flowDelegate?.navigateToHome()
     }
 }
 
+//MARK: - Animations
+
 extension SplashViewController {
     private func startBreathingAnimation() {
-        UIView.animate(withDuration: 1.6, delay: 0.4, animations: {
-            //self.contentView.logoImageView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        UIView.animate(withDuration: 10.8, delay: 0.0, animations: {
+            self.contentView.logoImageView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }, completion: { _ in
+            self.bindViewModel()
         })
     }
 }

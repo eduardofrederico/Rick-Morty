@@ -12,10 +12,9 @@ class SplashView: UIView {
     
     public weak var delegate: SplashFlowDelegate?
     
-    //Posso remover pois não vou usar imagem como logo, apenas texto
-    private let logoImageView: UIImageView = {
+    let logoImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "rickAndMorty")
+        image.image = UIImage(named: "Logo")
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -25,7 +24,6 @@ class SplashView: UIView {
         let label = UILabel()
         label.text = "Rick and Morty"
         label.font = AppFonts.medium
-        //UIFont(name: "Get Schwifty", size: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -47,8 +45,10 @@ class SplashView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLogoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLogoLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            titleLogoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 620),
+            titleLogoLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -80),
+            
+            logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 220),
         ])
     
     }
